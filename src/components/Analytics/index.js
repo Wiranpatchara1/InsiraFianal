@@ -3,7 +3,7 @@ import '../../bulma.css';
 import SignOutButton from '../SignOut';
 import { withAuthorization } from '../Session';
 import logo from '../../image/logo.jpg';
-import SideBar from "../Home/slidebar";
+import SideBar from "../Slidebar ";
 import { StickyContainer, Sticky } from 'react-sticky';
 import firebase from "firebase";
 import D3Bar from "../Graph/D3Bar";

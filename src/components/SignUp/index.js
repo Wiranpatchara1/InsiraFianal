@@ -74,105 +74,105 @@ class SignUpFormBase extends Component {
       username === '';
 
     return (
-<div>
-     <div className="header">
-        <img src={logo} alt='logo' width = '110px' className="has-text-centered"/>
-         <div className="header-right">
-           <Link to={ROUTES.SIGN_IN}>Sign in</Link>
-           <Link to={ROUTES.SIGN_UP}>Create account </Link>
-         </div>
-     </div>
-     {/* **************************************************************************** */}
-    <div className="backgroundopaup">
-       <div className="carduploardsign">
-           <div className="columns">
+      <div>
+        <div className="header">
+          <img src={logo} alt='logo' width='110px' className="has-text-centered" />
+          <div className="header-right">
+            <Link to={ROUTES.SIGN_IN}>Sign in</Link>
+            <Link to={ROUTES.SIGN_UP}>Create account </Link>
+          </div>
+        </div>
+        {/* **************************************************************************** */}
+        <div className="backgroundopaup">
+          <div className="carduploardsign">
+            <div className="columns">
               <div className="column ">
                 <div className="bolck2">
-                  <br/>  <br/>  <br/>
-                <p className="textcard">Welcome to Insira</p>
-                <p className="textcard2">Lorem ipsum dolor sit amet, consectetuer </p>
-                <br/>     <br/>
-                <p className="textcard3">Sign up</p>
-                <br/>
+                  <br />  <br />  <br />
+                  <p className="textcard">Welcome to Insira</p>
+                  <p className="textcard2">Lorem ipsum dolor sit amet, consectetuer </p>
+                  <br />     <br />
+                  <p className="textcard3">Sign up</p>
+                  <br />
                   <form onSubmit={this.onSubmit}>
                     <div className="field">
                       <p className="control has-icons-left has-icons-right">
-                      <input
-                        className="input is-small"
-                        name="username"
-                        value={username}
-                        onChange={this.onChange}
-                        type="text"
-                        placeholder="Full Name"
-                      />
+                        <input
+                          className="input is-small"
+                          name="username"
+                          value={username}
+                          onChange={this.onChange}
+                          type="text"
+                          placeholder="Full Name"
+                        />
                         <span className="icon is-small is-left">
-                        <i className="fas fa-user-edit"></i>
+                          <i className="fas fa-user-edit"></i>
                         </span>
                       </p>
                     </div>
                     <div className="field">
                       <p className="control has-icons-left">
-                      <input
-                        className="input is-small"
-                        name="email"
-                        value={email}
-                        onChange={this.onChange}
-                        type="text"
-                        placeholder="Email Address"
-                      />
-                      <span className="icon is-small is-left">
-                      <i className="fas fa-envelope"></i>
-                      </span>
+                        <input
+                          className="input is-small"
+                          name="email"
+                          value={email}
+                          onChange={this.onChange}
+                          type="text"
+                          placeholder="Email Address"
+                        />
+                        <span className="icon is-small is-left">
+                          <i className="fas fa-envelope"></i>
+                        </span>
                       </p>
                     </div>
                     <div className="field">
                       <p className="control has-icons-left">
-                      <input
-                        className="input is-small"
-                        name="passwordOne"
-                        value={passwordOne}
-                        onChange={this.onChange}
-                        type="password"
-                        placeholder="Password"
-                      />
-                      <span className="icon is-small is-left">
-                        <i className="fas fa-lock"></i>
-                      </span>
+                        <input
+                          className="input is-small"
+                          name="passwordOne"
+                          value={passwordOne}
+                          onChange={this.onChange}
+                          type="password"
+                          placeholder="Password"
+                        />
+                        <span className="icon is-small is-left">
+                          <i className="fas fa-lock"></i>
+                        </span>
                       </p>
                     </div>
                     <div className="field">
                       <p className="control has-icons-left">
-                      <input
-                        className="input is-small"
-                        name="passwordTwo"
-                        value={passwordTwo}
-                        onChange={this.onChange}
-                        type="password"
-                        placeholder="Confirm Password"
-                      />
-                      <span className="icon is-small is-left">
-                      <i className="fas fa-check-square"></i>
-                      </span>
+                        <input
+                          className="input is-small"
+                          name="passwordTwo"
+                          value={passwordTwo}
+                          onChange={this.onChange}
+                          type="password"
+                          placeholder="Confirm Password"
+                        />
+                        <span className="icon is-small is-left">
+                          <i className="fas fa-check-square"></i>
+                        </span>
                       </p>
                     </div>
-                    <br/>
-                    <button disabled={isInvalid} type="submit"  className="button is-info is-small">
+                    <br />
+                    <button disabled={isInvalid} type="submit" className="button is-info is-small">
                       Create account
                     </button>
                     {error && <p>{error.message}</p>}
                   </form>
-                  <br/>
+                  <br />
                 </div>
               </div>
-            <div className="column ">
+              <div className="column ">
                 <img src={signup} alt='signup' width='450px' />
+              </div>
             </div>
           </div>
-       </div>
-    </div>
-  </div>
+        </div>
+      </div>
 
- 
+
     );
   }
 }
