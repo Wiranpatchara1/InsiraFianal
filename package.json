@@ -3,9 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "firebase": "^7.2.2",
+    "jquery": "^3.4.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-scripts": "3.2.0"
+    "react-file-drop": "^0.2.8",
+    "react-firebaseui": "^4.0.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.2.0",
+    "react-sticky": "^6.0.3",
+    "recharts": "^1.8.5",
+    "recompose": "^0.30.0"
   },
   "scripts": {
     "start": "react-scripts start",
