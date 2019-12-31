@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes';
 import FileDrop from 'react-file-drop';
 import $ from 'jquery';
+import { statements } from '@babel/template';
 
 class Landing extends React.Component {
   constructor(props) {
@@ -72,7 +73,6 @@ class Landing extends React.Component {
   render() {
 
     return (
-
       <div>
         <div className="header">
           <img src={logo} alt='logo' width='110px' className="has-text-centered" />
