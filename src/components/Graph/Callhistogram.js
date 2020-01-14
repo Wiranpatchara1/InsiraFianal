@@ -27,7 +27,7 @@ componentDidMount(){
 
   render(){
     return(
-      <div>
+      <div id='distribution'>
           {this.state.Histogram&&this.state.Histogram.Values.map( (d,i) => {
               var keys = Object.keys(d)[0];
               var data = d[keys];

@@ -17,7 +17,7 @@ export default class Histogram extends React.Component {
     height = 400 - margin.top - margin.bottom;
     const { data,name } = this.props;
     const binwidth = Math.round(Math.sqrt(data.length))
-    const svg = d3.select("body")
+    const svg = d3.select("#distribution")
                 .append("svg")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)

@@ -16,7 +16,7 @@ export default class Boxplot extends React.Component {
     width = 460 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
     const { data,name } = this.props;
-    const svg = d3.select("body")
+    const svg = d3.select("#boxplot")
             .append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)

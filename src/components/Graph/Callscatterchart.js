@@ -24,7 +24,7 @@ export default class Callscatterchart extends React.Component {
 
     render(){
         return(
-            <div>
+            <div id='scatter'>
                 {this.state.scatter&&this.state.scatter.Values.map( (d,i) => {
                     var keys = Object.keys(d)[0];
                     var data = d[keys];

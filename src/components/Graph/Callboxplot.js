@@ -25,7 +25,7 @@ class Callboxplot extends Component {
 
     render() {
         return (
-            <div>
+            <div id='boxplot'>
                 {this.state.Boxplot && this.state.Boxplot.Values.map((d, i) => {
                     var keys = Object.keys(d)[0];
                     var data = d[keys];

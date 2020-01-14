@@ -24,7 +24,7 @@ export default class Callbar extends React.Component {
 
     render(){
         return(
-            <div>
+            <div id='bar'>
                 {this.state.bar&&this.state.bar.Values.map( (d,i) => {
                     var keys = Object.keys(d)[0];
                     var data = d[keys];
