@@ -29,7 +29,7 @@ export default class Callscatterchart extends React.Component {
                     var keys = Object.keys(d)[0];
                     var data = d[keys];
                     return(
-                        <Correlation key={i} data={data} name={"name"} X_key={"x"} Y_key={"y"} />
+                        <Correlation key={i} data={data} name={keys} />
                     )
                 })}
             </div>

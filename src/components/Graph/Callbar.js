@@ -1,14 +1,11 @@
 import React from 'react';
 import $ from 'jquery';
-import Barchart from './Barchart'
-import Callscatterchart from './Callscatterchart'
-import Calllinechart from './Calllinechart'
-import Callareachart from './Callareachart'
-export default class Callbarchart extends React.Component {
+import Bar from './ฺBar'
+export default class Callbar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {call: false};
-
+ 
     }
     componentDidMount(){
         const now = this;
@@ -18,9 +15,8 @@ export default class Callbarchart extends React.Component {
             dataType: 'json',
             success: function (res) {
                 now.setState(state => ({
-                    bar: res
+                    bar : res
                 }))
-                console.log("data",now.state.bar.Values[0].branch)
             }
         });
     }
@@ -33,15 +29,10 @@ export default class Callbarchart extends React.Component {
                     var keys = Object.keys(d)[0];
                     var data = d[keys];
                     return(
-                        <Barchart key={i} data={data} name={"name"} value={"value"} color={"#8884d8"} />
+                        <Bar key={i} data={data} name={keys} />
                     )
                 })}
-                <Callscatterchart />
-                <Calllinechart  />
-                <Callareachart  />
             </div>
-            
-
         );
     }
-}       
+}

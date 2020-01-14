@@ -51,6 +51,14 @@ export default class Histogram extends React.Component {
         .attr("width", function (d) { return x(d.x1) - x(d.x0) - 1; })
         .attr("height", function (d) { return height - y(d.length); })
         .style("fill", "#69b3a2")
+    var title = "distribution of " + name;
+    svg.append("text")
+      .attr("x", (width / 2))
+      .attr("y", 0 - (margin.top / 2))
+      .attr("text-anchor", "middle")
+      .style("font-size", "16px")
+      .style("text-decoration", "underline")
+      .text(title);
 
 
   }
