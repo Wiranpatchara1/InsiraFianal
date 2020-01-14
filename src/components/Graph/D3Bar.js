@@ -21,8 +21,11 @@ componentDidMount(){
     return(
       <div>
           <Callhistogram ></Callhistogram>
+
           <Callscatterchart></Callscatterchart>
+
           <Callbar></Callbar>
+
           <Callboxplot></Callboxplot>
       </div>
   );
