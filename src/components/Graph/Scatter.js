@@ -1,5 +1,6 @@
 import React from 'react';
 import * as d3 from 'd3';
+import { colors } from '../../variables';
 export default class Correlation extends React.Component {
   constructor(props) {
     super(props);
@@ -45,7 +46,7 @@ export default class Correlation extends React.Component {
       .attr("cx", function (d) { return x(d.x); })
       .attr("cy", function (d) { return y(d.y); })
       .attr("r", 3)
-      .style("fill", "#69b3a2")
+      .style("fill", colors.color1)
 
     var title = "correlation of " + name;
     svg.append("text")

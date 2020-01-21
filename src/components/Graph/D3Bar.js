@@ -4,7 +4,7 @@ import Callhistogram from './Callhistogram';
 import Callscatterchart from './Callscatterchart';
 import Callbar from './Callbar';
 import Callboxplot from './Callboxplot';
-import Heatmap from './Heatmap';
+import Callheatmap from './Callheatmap';
 
 class D3Bar extends Component {
   constructor(props) {
@@ -20,10 +20,16 @@ componentDidMount(){
     // return <div id={"#" + this.props.id}></div>
     return(
       <div>
-          <Callhistogram ></Callhistogram>
-          <Callscatterchart></Callscatterchart>
-          <Callbar></Callbar>
-          <Callboxplot></Callboxplot>
+        <h4>&nbsp; Correlogram</h4><br />
+          <Callheatmap />
+        <h4>&nbsp; Distribution</h4><br />
+          <Callhistogram />
+        <h4>&nbsp; Correlation</h4><br />
+          <Callscatterchart />
+        <h4>&nbsp; Compare</h4><br />
+          <Callbar />
+        <h4>&nbsp; Outliner</h4><br />
+          <Callboxplot />
       </div>
   );
 

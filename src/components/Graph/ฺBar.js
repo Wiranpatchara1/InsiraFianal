@@ -1,5 +1,6 @@
 import React from 'react';
 import * as d3 from 'd3';
+import {colors} from '../../variables';
 export default class Bar extends React.Component {
   constructor(props) {
     super(props);
@@ -50,7 +51,7 @@ export default class Bar extends React.Component {
         .attr("y", function (d) { return y(d.value); })
         .attr("width", x.bandwidth())
         .attr("height", function (d) { return height - y(d.value); })
-        .attr("fill", "#69b3a2")
+        .attr("fill", colors.color1)
     var title = "barplot of " + name;
     console.log(title);
     svg.append("text")

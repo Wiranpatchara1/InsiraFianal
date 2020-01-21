@@ -1,5 +1,6 @@
 import React from 'react';
 import * as d3 from 'd3';
+import {colors} from '../../variables';
 export default class Boxplot extends React.Component {
   constructor(props) {
     super(props);
@@ -62,7 +63,7 @@ export default class Boxplot extends React.Component {
         .attr("height", (y(q1) - y(q3)))
         .attr("width", width_new)
         .attr("stroke", "black")
-        .style("fill", "#69b3a2")
+        .style("fill", colors.color1)
     svg
         .selectAll("toto")
         .data([min, median, max])

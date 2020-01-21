@@ -26,7 +26,6 @@ const App = () => (
       <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
       <Route exact path={ROUTES.ADMIN} component={AdminPage} />
       <Route exact path={ROUTES.DATA} component={D3Bar} />
-      <Route exact path={ROUTES.TEST} component={D3Bar} />
     </div>
   </Router>
 );
