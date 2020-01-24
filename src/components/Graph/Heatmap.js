@@ -30,8 +30,8 @@ export default class Heatmap extends React.Component {
         // Create a color scale
         var color = d3.scaleLinear()
             .domain([-1, 0, 1])
-            .range(["#fff",colors.color1]);
-            // .range(["#B22222", "#fff", "#000080"]);
+            // .range(["#fff",colors.color1]);
+            .range(["#B22222", "#fff", "#000080"]);
 
         // Create a size scale for bubbles on top right. Watch out: must be a rootscale!
         var size = d3.scaleSqrt()

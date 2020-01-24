@@ -5,6 +5,7 @@ import Callscatterchart from './Callscatterchart';
 import Callbar from './Callbar';
 import Callboxplot from './Callboxplot';
 import Callheatmap from './Callheatmap';
+import Callecdf from './Callecdf';
 
 class D3Bar extends Component {
   constructor(props) {
@@ -30,6 +31,8 @@ componentDidMount(){
           <Callbar />
         <h4>&nbsp; Outliner</h4><br />
           <Callboxplot />
+        <h4>&nbsp; ECDF</h4><br />
+          <Callecdf />
       </div>
   );
 
