@@ -33,6 +33,7 @@ class Landing extends React.Component {
       contentType: false, // important  
       data: now.state.file,
       success: function (text) {
+        // console.log('finished');
           // alert(text);
           // if (text === "success") {
           //     alert("Your data was uploaded successfully");

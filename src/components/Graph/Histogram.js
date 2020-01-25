@@ -37,6 +37,7 @@ export default class Histogram extends React.Component {
                       .value(function (d) { return d.value; })   // I need to give the vector of value
                       .domain(x.domain())  // then the domain of the graphic
                       .thresholds(x.ticks(binwidth)); // then the numbers of bins
+                      
     var bins = histogram(data);
     var y = d3.scaleLinear()
                         .range([height, 0]);

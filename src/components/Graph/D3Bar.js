@@ -6,7 +6,7 @@ import Callbar from './Callbar';
 import Callboxplot from './Callboxplot';
 import Callheatmap from './Callheatmap';
 import Callecdf from './Callecdf';
-
+import Testtable from './Testtable';
 class D3Bar extends Component {
   constructor(props) {
     super(props);
@@ -21,6 +21,7 @@ componentDidMount(){
     // return <div id={"#" + this.props.id}></div>
     return(
       <div>
+      <Testtable />
         <h4>&nbsp; Correlogram</h4><br />
           <Callheatmap />
         <h4>&nbsp; Distribution</h4><br />
@@ -33,6 +34,7 @@ componentDidMount(){
           <Callboxplot />
         <h4>&nbsp; ECDF</h4><br />
           <Callecdf />
+          
       </div>
   );
 
