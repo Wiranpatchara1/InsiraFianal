@@ -39,25 +39,26 @@ class Testtable extends Component {
     }))
   }
   handletargetChange(colname,e){
-    console.log(e.target.value);
-    let data_temp = this.state.data;
-    var result = this.state.data.findIndex(
-      entry => entry.col_name === colname
-    );
+    // console.log(e.target.value);
+    // let data_temp = this.state.data;
+    // var result = this.state.data.findIndex(
+    //   entry => entry.col_name === colname
+    // );
+    this.setState(state => ({
+      target: colname
+    }))
   }
   handleClick(){
     const now = this;
-    console.log("click",now.state.data)
-    let formData = new FormData();
-    formData.append('file', now.state.data);
-    console.log(formData);
+    // console.log("click",now.state.data)
+    
     $.ajax({
       url: "http://127.0.0.1:5000/data",
       type: "post",
       dataType: 'json',
       contentType: 'application/json',
       processData: false, // important
-      data: JSON.stringify(now.state.data),
+      data: JSON.stringify({'data':now.state.data,'target':now.state.target}),
       success: function (text) {
       }
   });
@@ -86,7 +87,7 @@ class Testtable extends Component {
                     ))}
                   </select>
                   </td>
-                  <td><input type="checkbox" name="target" value={data.col_name} style={{ textAlign: "center" ,verticalAlign: "center"}} onChange={(e) => this.handletargetChange(data.col_name,e)}></input></td>
+                  <td><input type="radio" name="target" value={data.col_name} style={{ textAlign: "center" ,verticalAlign: "center"}} onChange={(e) => this.handletargetChange(data.col_name,e)}></input></td>
 
                 </tr>
               )
