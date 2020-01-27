@@ -21,7 +21,6 @@ componentDidMount(){
     // return <div id={"#" + this.props.id}></div>
     return(
       <div>
-      <Testtable />
         <h4>&nbsp; Correlogram</h4><br />
           <Callheatmap />
         <h4>&nbsp; Distribution</h4><br />

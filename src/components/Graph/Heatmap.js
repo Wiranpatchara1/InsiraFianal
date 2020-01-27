@@ -1,6 +1,6 @@
 import React from 'react';
 import * as d3 from 'd3';
-import { colors } from '../../variables';
+import { colors,margin,width,height } from '../../variables';
 export default class Heatmap extends React.Component {
     constructor(props) {
         super(props);
@@ -10,10 +10,6 @@ export default class Heatmap extends React.Component {
         this.drawChart();
     }
     drawChart() {
-        // not finised 
-        const margin = { top: 30, right: 30, bottom: 30, left: 40 },
-            width = 460 - margin.left - margin.right,
-            height = 400 - margin.top - margin.bottom;
         // append the svg object to the body of the page
         const { data,name } = this.props;
         console.log("heatmap",data);

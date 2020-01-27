@@ -1,6 +1,6 @@
 import React from 'react';
 import * as d3 from 'd3';
-import {colors} from '../../variables';
+import { colors,margin,width,height } from '../../variables';
 export default class Boxplot extends React.Component {
   constructor(props) {
     super(props);
@@ -13,9 +13,6 @@ export default class Boxplot extends React.Component {
     this.drawChart();
   }
   drawChart() {
-    const margin = { top: 30, right: 30, bottom: 30, left: 40 },
-    width = 460 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
     const { data,name } = this.props;
     const svg = d3.select("#boxplot")
             .append("svg")

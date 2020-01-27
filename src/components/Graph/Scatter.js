@@ -1,6 +1,6 @@
 import React from 'react';
 import * as d3 from 'd3';
-import { colors } from '../../variables';
+import { colors,margin,width,height } from '../../variables';
 export default class Correlation extends React.Component {
   constructor(props) {
     super(props);
@@ -11,10 +11,8 @@ export default class Correlation extends React.Component {
     this.drawChart();
   }
   drawChart() {
-    const margin = { top: 30, right: 30, bottom: 30, left: 40 },
-      width = 460 - margin.left - margin.right,
-      height = 400 - margin.top - margin.bottom;
     const { data, name } = this.props;
+    var label = name.split(",");
     const svg = d3.select("#scatter")
       .append("svg")
       .attr("width", width + margin.left + margin.right)
@@ -30,6 +28,14 @@ export default class Correlation extends React.Component {
     svg.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x));
+    // text label for the x axis
+    svg.append("text")
+      .attr("transform",
+        "translate(" + (width / 2) + " ," +
+        (height + margin.top + 20) + ")")
+      .style("text-anchor", "middle")
+      .text(label[0]);
+    console.log('label',label[0])
     var max_y = d3.max(data, function (d) { return +d.y })
     var min_y = d3.min(data, function (d) { return +d.y })
     // Add Y axis
@@ -47,6 +53,13 @@ export default class Correlation extends React.Component {
       .attr("cy", function (d) { return y(d.y); })
       .attr("r", 3)
       .style("fill", colors.color1)
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x", 0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text(label[1]);
 
     var title = "correlation of " + name;
     svg.append("text")

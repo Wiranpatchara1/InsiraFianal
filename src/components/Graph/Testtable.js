@@ -6,7 +6,7 @@ import $ from 'jquery';
 class Testtable extends Component {
   constructor(props) {
     super(props);
-    this.state = { call: false ,coltype: ['unique','ordinal','numeric','category','date']};
+    this.state = { call: false, coltype: ['unique', 'ordinal', 'numeric', 'category', 'date'] };
     this.handletypeChange = this.handletypeChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handletargetChange = this.handletargetChange.bind(this);
@@ -24,9 +24,8 @@ class Testtable extends Component {
         }));
       }
     });
-
   }
-  handletypeChange(colname,e){
+  handletypeChange(colname, e) {
     console.log(e.target.value);
     let data_temp = this.state.data;
     var result = this.state.data.findIndex(
@@ -38,7 +37,7 @@ class Testtable extends Component {
       data: data_temp
     }))
   }
-  handletargetChange(colname,e){
+  handletargetChange(colname, e) {
     // console.log(e.target.value);
     // let data_temp = this.state.data;
     // var result = this.state.data.findIndex(
@@ -48,25 +47,25 @@ class Testtable extends Component {
       target: colname
     }))
   }
-  handleClick(){
+  handleClick() {
     const now = this;
     // console.log("click",now.state.data)
-    
+
     $.ajax({
       url: "http://127.0.0.1:5000/data",
       type: "post",
       dataType: 'json',
       contentType: 'application/json',
       processData: false, // important
-      data: JSON.stringify({'data':now.state.data,'target':now.state.target}),
+      data: JSON.stringify({ 'data': now.state.data, 'target': now.state.target }),
       success: function (text) {
       }
-  });
+    });
   }
 
   render() {
     // return <div id={"#" + this.props.id}></div>
-    return ( 
+    return (
       <div >
         <table class="table is-bordered is-hoverable">
           <thead>
@@ -77,24 +76,24 @@ class Testtable extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.data&&this.state.data.map((data, key) => {
+            {this.state.data && this.state.data.map((data, key) => {
               return (
                 <tr key={key}>
                   <td>{data.col_name}</td>
-                  <td><select value={data.col_type} key={`item-${data.col_type}`} onChange={(e) => this.handletypeChange(data.col_name,e)}>
-                    {this.state.coltype.map((value,i) => (
+                  <td><select value={data.col_type} key={`item-${data.col_type}`} onChange={(e) => this.handletypeChange(data.col_name, e)}>
+                    {this.state.coltype.map((value, i) => (
                       <option value={value} key={i}>{value}</option>
                     ))}
                   </select>
                   </td>
-                  <td><input type="radio" name="target" value={data.col_name} style={{ textAlign: "center" ,verticalAlign: "center"}} onChange={(e) => this.handletargetChange(data.col_name,e)}></input></td>
+                  <td><input type="radio" name="target" value={data.col_name} style={{ textAlign: "center", verticalAlign: "center" }} onChange={(e) => this.handletargetChange(data.col_name, e)}></input></td>
 
                 </tr>
               )
             })}
           </tbody>
         </table>
-        <button class="button is-primary" onClick={this.handleClick}>send</button>
+        <button class="button is-success" onClick={this.handleClick}>send</button>
       </div>
     );
 

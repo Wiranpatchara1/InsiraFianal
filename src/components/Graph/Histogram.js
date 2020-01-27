@@ -1,6 +1,6 @@
 import React from 'react';
 import * as d3 from 'd3';
-import { colors } from '../../variables';
+import { colors,margin,width,height } from '../../variables';
 export default class Histogram extends React.Component {
   constructor(props) {
     super(props);
@@ -13,9 +13,6 @@ export default class Histogram extends React.Component {
     this.drawChart();
   }
   drawChart() {
-    const margin = { top: 30, right: 30, bottom: 30, left: 40 },
-    width = 460 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
     const { data,name } = this.props;
     const binwidth = Math.round(Math.sqrt(data.length))
     const svg = d3.select("#distribution")
@@ -28,7 +25,7 @@ export default class Histogram extends React.Component {
     var max = d3.max(data, function (d) { return +d.value });
     var min = d3.min(data, function (d) { return +d.value });
     var x = d3.scaleLinear()
-              .domain([min, max])     // can use this instead of 1000 to have the max of data: d3.max(data, function(d) { return +d.price })
+              .domain([min, max+1])     // can use this instead of 1000 to have the max of data: d3.max(data, function(d) { return +d.price })
               .range([0, width]);
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
