@@ -50,19 +50,15 @@ class Landing extends React.Component {
       contentType: false, // important  
       data: now.state.file,
       success: function (text) {
-        $.ajax({
-          url: 'http://127.0.0.1:5000/upload',
-          type: "GET",
-          dataType: 'json',
-          success: function (res) {
-            console.log(res);
-            now.setState(state => ({
-              data: res
-            }));
-          }
-        });
-        
-        now.showModal()
+        fetch('http://127.0.0.1:5000/upload').then(
+            data => data.json()
+          ).then(
+              data => {now.setState(state => ({
+                data:data
+              }))}
+            ).then(
+              now.showModal()
+            )
       },
       error: function () {
         alert("An error occured, please try again.");
@@ -77,6 +73,12 @@ class Landing extends React.Component {
       file: formData
     }));
   }
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    if (this.state.data !== prevProps.data) {
+      console.log("Show leay")
+    }
+  }
 
   render() {
 
@@ -90,7 +92,7 @@ class Landing extends React.Component {
               <button class="delete" aria-label="close" onClick={this.closeModal}></button>
             </header>
             <section class="modal-card-body">
-              <Testtable />
+              {this.state.data&&<Testtable data={this.state.data} />}
             </section>
             <footer class="modal-card-foot">
               <Link to={ROUTES.DATA}>

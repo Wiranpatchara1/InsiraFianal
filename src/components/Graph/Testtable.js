@@ -12,18 +12,22 @@ class Testtable extends Component {
     this.handletargetChange = this.handletargetChange.bind(this);
   }
   componentDidMount() {
+    const { data } = this.props;
+    this.setState(state => ({
+      data:data
+    }));
     const now = this;
-    $.ajax({
-      url: 'http://127.0.0.1:5000/upload',
-      type: "GET",
-      dataType: 'json',
-      success: function (res) {
-        console.log(res);
-        now.setState(state => ({
-          data: res
-        }));
-      }
-    });
+    // $.ajax({
+    //   url: 'http://127.0.0.1:5000/upload',
+    //   type: "GET",
+    //   dataType: 'json',
+    //   success: function (res) {
+    //     console.log(res);
+    //     now.setState(state => ({
+    //       data: res
+    //     }));
+    //   }
+    // });
   }
   handletypeChange(colname, e) {
     console.log(e.target.value);
