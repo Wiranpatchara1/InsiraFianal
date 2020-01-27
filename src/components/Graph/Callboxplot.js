@@ -18,9 +18,7 @@ class Callboxplot extends Component {
                     Boxplot: res
                 }))
             }
-        }).then(
-            console.log(this.state.Boxplot)
-        )
+        });
     }
 
     render() {
