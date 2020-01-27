@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../../bulma.css';
 import { withFirebase } from '../Firebase';
 
 const SignOutButton = ({ firebase }) => (

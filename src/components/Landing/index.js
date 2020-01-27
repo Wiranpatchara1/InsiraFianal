@@ -23,29 +23,51 @@ class Landing extends React.Component {
       test: !state.test
     }));
     console.log(this.state.test)
-  }
-  handleChangeFile(event) {
-    const file = event.target.files[0];
-    let formData = new FormData();
-    formData.append('file', file);
-    //Make a request to server and send formData
-    $.ajax({
-      url: "http://127.0.0.1:3000/upload",
+    const now = this;
+      $.ajax({
+      url: "http://127.0.0.1:5000/upload",
       type: "post",
       dataType: 'json',
       processData: false, // important
       contentType: false, // important  
-      data: formData,
+      data: now.state.file,
       success: function (text) {
-          alert(text);
-          if (text === "success") {
-              alert("Your data was uploaded successfully");
-          }
+          // alert(text);
+          // if (text === "success") {
+          //     alert("Your data was uploaded successfully");
+          // }
       },
       error: function () {
           alert("An error occured, please try again.");
       }
   });
+  }
+  handleChangeFile(event) {
+    const file = event.target.files[0];
+    let formData = new FormData();
+    
+    formData.append('file', file);
+    this.setState(state => ({
+      file: formData
+    }));
+    //Make a request to server and send formData
+  //   $.ajax({
+  //     url: "http://127.0.0.1:5000/upload",
+  //     type: "post",
+  //     dataType: 'json',
+  //     processData: false, // important
+  //     contentType: false, // important  
+  //     data: formData,
+  //     success: function (text) {
+  //         alert(text);
+  //         if (text === "success") {
+  //             alert("Your data was uploaded successfully");
+  //         }
+  //     },
+  //     error: function () {
+  //         alert("An error occured, please try again.");
+  //     }
+  // });
   }
 
   render() {
@@ -93,7 +115,15 @@ class Landing extends React.Component {
                       </FileDrop>
                   </div>
                   <br />
-                  <button className="button is-info" id="Input" onClick={this.handleClick}>Upload</button>
+              
+
+
+                   <Link to={ROUTES.DATA}>
+                   <button className="button is-info" id="Input" 
+                  onClick={this.handleClick}>
+                    Upload</button>
+
+                   </Link>
                 </div>
               </div>
               <div className="column ">
