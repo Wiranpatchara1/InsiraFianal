@@ -7,8 +7,12 @@ import PasswordForgetPage from '../PasswordForget';
 import HomePage from '../Home';
 import AccountPage from '../Account';
 import AdminPage from '../Admin';
+<<<<<<< HEAD
 import D3Bar from '../Graph/D3Bar';
 import Analytic from '../Analytics';
+=======
+import Callbarchart from '../Graph/Callbarchart';
+>>>>>>> Update Home
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
 
@@ -26,8 +30,13 @@ const App = () => (
       <Route exact path={ROUTES.HOME} component={HomePage} />
       <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
       <Route exact path={ROUTES.ADMIN} component={AdminPage} />
+<<<<<<< HEAD
       <Route exact path={ROUTES.DATA} component={D3Bar} />
       <Route exact path={ROUTES.ANALYTIC} component={Analytic} />
+=======
+      <Route exact path={ROUTES.DATA} component={Callbarchart} />
+
+>>>>>>> Update Home
     </div>
   </Router>
 );

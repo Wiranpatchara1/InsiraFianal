@@ -8042,6 +8042,7 @@ label.panel-block:hover {
   padding: 0.75rem;
 }
 
+
 .columns.is-mobile > .column.is-narrow {
   flex: none;
 }
@@ -10907,6 +10908,16 @@ label.panel-block:hover {
   width: 100%;
 }
 
+.backgrounddash {
+  background-image: url("image/banner2.jpg"); 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
+
+  height: 800px ;
+  width: 100%;
+}
+
 .backgroundopa {
   background-image: url("image/BGbulr.jpg"); 
   background-position: center; 
@@ -11139,3 +11150,7 @@ label.panel-block:hover {
 .bm-overlay {
   background: rgba(88, 88, 88, 0.3);
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> Update Home
