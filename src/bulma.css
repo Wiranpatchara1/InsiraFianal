@@ -8042,7 +8042,6 @@ label.panel-block:hover {
   padding: 0.75rem;
 }
 
-
 .columns.is-mobile > .column.is-narrow {
   flex: none;
 }
@@ -11139,4 +11138,3 @@ label.panel-block:hover {
 .bm-overlay {
   background: rgba(88, 88, 88, 0.3);
 }
-
