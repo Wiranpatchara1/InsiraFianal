@@ -7,7 +7,6 @@ import * as ROUTES from '../../constants/routes';
 import FileDrop from 'react-file-drop';
 import $ from 'jquery';
 import Testtable from '../Graph/Testtable';
-
 import { statements } from '@babel/template';
 
 class Landing extends React.Component {
