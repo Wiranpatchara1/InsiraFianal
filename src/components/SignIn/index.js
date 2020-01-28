@@ -144,12 +144,7 @@ class SignInFormBase extends Component {
 
                   <div className="App">
                     {this.state.isSignedIn ? (
-                      <span>
-                        <div>Signed In!</div>
-                        <button onClick={() => firebase.auth().signOut()}>Sign out!</button>
-                        <h1>Welcome {firebase.auth().currentUser.displayName}</h1>
-                        <img alt="profilepic"src={firebase.auth().currentUser.photoURL}/>
-                      </span>
+                      <div>{this.props.history.push(ROUTES.HOME)}</div>
                     ) : (
                       <StyledFirebaseAuth
                         uiConfig={this.uiConfig}

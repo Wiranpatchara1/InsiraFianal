@@ -10896,6 +10896,16 @@ label.panel-block:hover {
   height: 760px ;
 }
 
+.backgrounddash {
+  background-image: url("image/banner2.jpg"); 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
+
+  height: 800px ;
+  width: 100%;
+}
+
 .backgroundopa {
   background-image: url("image/BGbulr.jpg"); 
   background-position: center; 
@@ -10903,6 +10913,12 @@ label.panel-block:hover {
   background-size: cover; 
   background-attachment: fixed;
   height: 760px ;
+}
+
+.baninsira {
+  background-image: url("image/banner4.png"); 
+  width: 45%;
+  height: 100%;
 }
 
 
@@ -10951,6 +10967,24 @@ label.panel-block:hover {
   font-weight:200;
   font-size: 27px;
 }/* rubik-regular - latin */
+
+
+
+.textcard4 { color: #111; font-family: 'Open Sans Condensed', sans-serif; font-size: 70px; font-weight: 700; line-height: 30px; margin: 0 0 0; padding: 20px 30px; text-align: center; text-transform: uppercase; }
+.textcard5 { color: #111; font-family: 'Open Sans Condensed', sans-serif; font-size: 64px; font-weight: 600;  margin: 0 0 0;  text-transform: uppercase; color: rgb(4, 189, 196); }
+
+.blockquote { background-image: url(http://typespiration.com/wp-content/themes/typespiration/images/quote.png); background-position: 10px 10%; background-repeat: no-repeat no-repeat; padding: 150px 0; }
+
+.des {
+  padding-top: 20px ;
+  padding-left: 50px ;
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight:100;
+  font-size: 17px;
+  color: rgb(73, 73, 73);
+}
+
 
 .textcard2 {
   font-family: 'Rubik';
@@ -11022,4 +11056,85 @@ label.panel-block:hover {
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+
+#page-wrap {
+  text-align: center;
+
+  /* Prevent sidebar from showing a scrollbar on page */
+  overflow: auto;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+  border-radius: 0.5em;
+  /* Our sidebar item styling */
+  text-decoration: none;
+  margin-bottom: 10px;
+  color: hsl(0, 0%, 22%);
+  transition: color 0.2s;
+}
+
+/* Change color on hover */
+.bm-item:hover {
+  color: rgb(139, 189, 255);
+  border-style: none;
+}
+
+/* The rest copied directly from react-burger-menu docs */
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+
+  position: fixed;
+  width: 34px;
+  height: 27px;
+  left: 34px;
+  top: 24px;
+  border-radius: 0.5em;
+  color: rgb(165, 165, 165);
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #373a47;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #ffffff;
+  padding: 2.5em 2em 0;
+  font-size: 1.0em;
+  border-style: none;
+  line-height: 26pt;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: rgb(139, 189, 255);
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  border-style: none;
+  
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(88, 88, 88, 0.3);
 }
