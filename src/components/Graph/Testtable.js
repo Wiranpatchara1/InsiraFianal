@@ -16,7 +16,7 @@ class Testtable extends Component {
     this.setState(state => ({
       data:data
     }));
-    const now = this;
+    // const now = this;
     // $.ajax({
     //   url: 'http://127.0.0.1:5000/upload',
     //   type: "GET",

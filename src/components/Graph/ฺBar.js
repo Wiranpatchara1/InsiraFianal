@@ -33,7 +33,7 @@ export default class Bar extends React.Component {
             .attr("transform", "translate(-10,0)rotate(-45)")
             .style("text-anchor", "end");
     var max_x = d3.max(data, function (d) { return +d.value })
-    var min_x = d3.min(data, function (d) { return +d.value })
+    // var min_x = d3.min(data, function (d) { return +d.value })
     // Add Y axis
     var y = d3.scaleLinear()
         .domain([0, 1.25 * max_x])

@@ -1,6 +1,6 @@
 import React from 'react';
 import * as d3 from 'd3';
-import { colors,margin,width,height } from '../../variables';
+import { margin,width,height } from '../../variables';
 export default class Heatmap extends React.Component {
     constructor(props) {
         super(props);
@@ -21,7 +21,7 @@ export default class Heatmap extends React.Component {
                     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
         // List of all variables and number of them
         var domain = d3.set(data.map(function (d) { return d.x })).values()
-        var num = Math.sqrt(data.length)
+        // var num = Math.sqrt(data.length)
 
         // Create a color scale
         var color = d3.scaleLinear()
@@ -98,6 +98,14 @@ export default class Heatmap extends React.Component {
                 }
             })
             .style("opacity", 0.8)
+            var title = "distribution of " + name;
+            svg.append("text")
+              .attr("x", (width / 2))
+              .attr("y", 0 - (margin.top / 2))
+              .attr("text-anchor", "middle")
+              .style("font-size", "16px")
+              .style("text-decoration", "underline")
+              .text(title);
 
     }
     render() {

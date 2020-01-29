@@ -1,20 +1,18 @@
 import React from 'react';
 import '../../bulma.css';
-import SignOutButton from '../SignOut';
 import { withAuthorization } from '../Session';
-import logo from '../../image/logo.jpg';
 import niti from '../../image/niti.png';
 import tang from '../../image/Tang.png';
 import nut from '../../image/Nut.png';
 import ban from '../../image/banner5.png';
 import SideBar from '../Slidebar ';
-import { StickyContainer, Sticky } from 'react-sticky';
-import firebase from "firebase";
+import Header from '../Header';
 import FileDrop from 'react-file-drop';
 import { Link } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes';
 import $ from 'jquery';
 import Testtable from '../Graph/Testtable';
+import { StickyContainer} from 'react-sticky';
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
@@ -28,13 +26,6 @@ class HomePage extends React.Component {
   handleDrop = (files, event) => {
     console.log(files, event);
   }
-  // $("#showModal").click(function () {
-  //   $(".modal").addClass("is-active");
-  // });
-
-  // $("#modal-close").click(function () {
-  //   $(".modal").removeClass("is-active");
-  // });
   showModal() {
     $(".modal").addClass("is-active");
   }
@@ -89,7 +80,9 @@ class HomePage extends React.Component {
   render() {
     return (
       <StickyContainer>
+
         <div id="App">
+        
           {/*config*/}
           <div class="modal">
             <div class="modal-background"></div>
@@ -111,51 +104,12 @@ class HomePage extends React.Component {
           {/*config*/}
           <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
           <div id="page-wrap">
-            <Sticky>
-              {({
-                style,
-                // the following are also available but unused in this example
-                isSticky,
-                wasSticky,
-                distanceFromTop,
-                distanceFromBottom,
-                calculatedHeight
-              }) => (
-                  <header className="header" style={style}>
-                    <div class="columns is-multiline ">
-                      <div className="column  is-offset-3">
-                        <img src={logo} alt='logo' width='110px' className="has-text-centered" />
-                      </div>
-
-                      {/* <div className="column is-1">
-                <h5>{firebase.auth().currentUser.displayName}</h5>
-               </div>    
-                       */}
-                      {/* <button onClick={() => firebase.auth().signOut()}>Sign out!</button> */}
-                      <div class="column is-2 ">
-                        <p className="textcard2">{firebase.auth().currentUser.displayName}</p>
-                        <SignOutButton />
-                      </div>
-
-                      <div className="column is-1">
-                        <img alt="profilepic" src={firebase.auth().currentUser.photoURL} />
-                      </div>
-
-                    </div>
-                  </header>
-                )}
-            </Sticky>
+            <Header />
             {/* **************************************************************************** */}
-
             <div className="backgrounddash">
-
               <div className="columns">
-
                 <img src={ban} alt='ban' width='45%' />
-
-
               </div>
-
             </div>
 
             <div className="bolck2">
@@ -238,7 +192,7 @@ class HomePage extends React.Component {
 
           </div>
         </div>
-      </StickyContainer>
+        </StickyContainer>
     );
   }
 }

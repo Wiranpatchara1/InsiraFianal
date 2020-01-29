@@ -6,7 +6,7 @@ import Callbar from './Callbar';
 import Callboxplot from './Callboxplot';
 import Callheatmap from './Callheatmap';
 import Callecdf from './Callecdf';
-import Testtable from './Testtable';
+// import Testtable from './Testtable';
 class D3Bar extends Component {
   constructor(props) {
     super(props);
