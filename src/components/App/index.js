@@ -8,6 +8,7 @@ import HomePage from '../Home';
 import AccountPage from '../Account';
 import AdminPage from '../Admin';
 import D3Bar from '../Graph/D3Bar';
+import Analytic from '../Analytics';
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
 
@@ -26,6 +27,7 @@ const App = () => (
       <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
       <Route exact path={ROUTES.ADMIN} component={AdminPage} />
       <Route exact path={ROUTES.DATA} component={D3Bar} />
+      <Route exact path={ROUTES.ANALYTIC} component={Analytic} />
     </div>
   </Router>
 );
