@@ -1,5 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
 import * as d3 from 'd3';
 import { colors,margin,width,height } from '../../variables';
 export default class Correlation extends React.Component {
@@ -73,26 +72,5 @@ export default class Correlation extends React.Component {
   }
   render() {
     return <div id={"#" + this.props.id}></div>
-=======
-import {ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip} from 'recharts'
-export default class Correlation extends React.Component {
-  render() {
-      const {data, X_key, Y_key, name} = this.props;
-    return (
-      <ScatterChart
-        width={400}
-        height={400}
-        margin={{
-          top: 20, right: 20, bottom: 20, left: 20,
-        }}
-      >
-        <CartesianGrid />
-        <XAxis type={"number"} dataKey={X_key} name={name}/>
-        <YAxis type={"number"} dataKey={Y_key} name={name}/>
-        <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-        <Scatter name={name} data={data} fill="#e34345" />
-      </ScatterChart>
-    );
->>>>>>> Update Home
   }
 }
