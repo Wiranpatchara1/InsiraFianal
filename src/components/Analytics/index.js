@@ -14,6 +14,9 @@ const Analytic = (props) => (
                 <Header />
                 <div className="Tablegraph">
                     <Ranktable />
+                    <br></br>
+                    <hr></hr>
+                    <br></br>
                     <D3Bar />
                 </div>
             </div>

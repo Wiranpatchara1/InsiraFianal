@@ -11,9 +11,9 @@ export default class Correlation extends React.Component {
     this.drawChart();
   }
   drawChart() {
-    const { data, name } = this.props;
+    const { data, name, graphid } = this.props;
     var label = name.split(",");
-    const svg = d3.select("#scatter")
+    const svg = d3.select("#"+graphid)
       .append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
@@ -71,6 +71,6 @@ export default class Correlation extends React.Component {
       .text(title);
   }
   render() {
-    return <div id={"#" + this.props.id}></div>
+    return (null);
   }
 }

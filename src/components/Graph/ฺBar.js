@@ -13,9 +13,9 @@ export default class Bar extends React.Component {
     this.drawChart();
   }
   drawChart() {
-    const { data,name } = this.props;
+    const { data,name,graphid } = this.props;
     console.log("From Bar ",data);
-    const svg = d3.select("#bar")
+    const svg = d3.select("#"+graphid)
                 .append("svg")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
@@ -61,8 +61,7 @@ export default class Bar extends React.Component {
 
   }
   render() {
-    return <div id={"#" + this.props.id}></div>
-
+    return (null);
   }
   
 }

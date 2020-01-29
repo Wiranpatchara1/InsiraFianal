@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
 import Histogram from './Histogram';
+import '../../bulma.css';
 
 class Callhistogram extends Component {
   constructor(props) {
@@ -32,7 +33,13 @@ componentDidMount(){
               var keys = Object.keys(d)[0];
               var data = d[keys];
               return(
-                  <Histogram key={i} data={data} name={keys} />
+                <div className='columns is-centered'>
+                  <div className='column is-9'>
+                    <div id={'distribution_'+keys} className='box'>
+                      <Histogram key={i} data={data} name={keys} graphid={'distribution_'+keys}/>
+                    </div>
+                  </div>
+                </div>
               )
           })}
       </div>
