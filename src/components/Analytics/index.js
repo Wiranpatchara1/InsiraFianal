@@ -5,10 +5,7 @@ import SideBar from '../Slidebar ';
 import Header from '../Header';
 import D3Bar from "../Graph/D3Bar";
 import Ranktable from '../Graph/Ranktable';
-<<<<<<< HEAD
-=======
 import { StickyContainer} from 'react-sticky';
->>>>>>> e6b674e96544c84d9f86ce86db94bacc4efd09f9
 const Analytic = (props) => (
     <StickyContainer>
         <div id="App">
