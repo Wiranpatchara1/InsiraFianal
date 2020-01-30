@@ -8,7 +8,6 @@ import { StickyContainer, Sticky } from 'react-sticky';
 import firebase from "firebase";
 import D3Bar from "../Graph/D3Bar";
 import Ranktable from '../Graph/Ranktable';
-import { Animated } from "react-animated-css";
 const Analytic = (props) => (
     <StickyContainer>
 

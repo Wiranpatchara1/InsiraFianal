@@ -10898,15 +10898,15 @@ label.panel-block:hover {
 
 }
 
-.backgrounddash {
-  background-image: url("image/banner2.jpg"); 
+.backgroundup{
+  background-image: url("image/1.jpg"); 
   background-position: center; 
   background-repeat: no-repeat; 
   background-size: cover; 
-
-  height: 800px ;
+  height: px ;
   width: 100%;
 }
+
 
 .backgrounddash {
   background-image: url("image/banner2.jpg"); 
