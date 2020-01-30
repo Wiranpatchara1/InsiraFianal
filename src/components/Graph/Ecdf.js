@@ -11,8 +11,8 @@ export default class Ecdf extends React.Component {
         this.drawChart();
     }
     drawChart() {
-        const { data, name } = this.props;
-        const svg = d3.select("#ecdf")
+        const { data, name,graphid } = this.props;
+        const svg = d3.select("#"+graphid)
             .append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
@@ -58,6 +58,6 @@ export default class Ecdf extends React.Component {
             .text(title);
     }
     render() {
-        return <div id={"#" + this.props.id}></div>
+        return (null);
     }
 }

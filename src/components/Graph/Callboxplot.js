@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import Boxplot from './Boxplot';
+import '../../bulma.css';
 
 class Callboxplot extends Component {
     constructor(props) {
@@ -30,7 +31,13 @@ class Callboxplot extends Component {
                     var keys = Object.keys(d)[0];
                     var data = d[keys];
                     return (
-                        <Boxplot key={i} data={data} name={keys} />
+                        <div className='columns is-centered'>
+                            <div className='column is-9'>
+                                <div id={'boxplot_' + keys} className='box'>
+                                    <Boxplot key={i} data={data} name={keys} graphid={'boxplot_' + keys} />
+                                </div>
+                            </div>
+                        </div>
                     )
                 })}
             </div>

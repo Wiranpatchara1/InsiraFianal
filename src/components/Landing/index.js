@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../bulma.css';
-import logo from '../../image/logo.jpg';
+// import logo from '../../image/logo.jpg';
 import graph from '../../image/graph.jpg';
 import { Link } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes';

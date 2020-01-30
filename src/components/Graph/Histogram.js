@@ -13,9 +13,9 @@ export default class Histogram extends React.Component {
     this.drawChart();
   }
   drawChart() {
-    const { data,name } = this.props;
+    const { data,name,graphid } = this.props;
     const binwidth = Math.round(Math.sqrt(data.length))
-    const svg = d3.select("#distribution")
+    const svg = d3.select("#"+graphid)
                 .append("svg")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
@@ -62,7 +62,7 @@ export default class Histogram extends React.Component {
 
   }
   render() {
-    return <div id={"#" + this.props.id}></div>
+    return (null);
 
   }
 }
