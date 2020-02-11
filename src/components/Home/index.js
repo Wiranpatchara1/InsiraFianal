@@ -1,18 +1,22 @@
 import React from 'react';
 import '../../bulma.css';
+import SignOutButton from '../SignOut';
 import { withAuthorization } from '../Session';
+import logo from '../../image/logo.jpg';
 import niti from '../../image/niti.png';
 import tang from '../../image/Tang.png';
 import nut from '../../image/Nut.png';
-import ban from '../../image/banner5.png';
 import SideBar from '../Slidebar ';
-import Header from '../Header';
+import { StickyContainer, Sticky } from 'react-sticky';
+import firebase from "firebase";
 import FileDrop from 'react-file-drop';
 import { Link } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes';
 import $ from 'jquery';
+import GraphDescript from '../GraphDescript';
+
 import Testtable from '../Graph/Testtable';
-import { StickyContainer} from 'react-sticky';
+import Banner from '../Banner ';
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
@@ -26,6 +30,13 @@ class HomePage extends React.Component {
   handleDrop = (files, event) => {
     console.log(files, event);
   }
+  // $("#showModal").click(function () {
+  //   $(".modal").addClass("is-active");
+  // });
+
+  // $("#modal-close").click(function () {
+  //   $(".modal").removeClass("is-active");
+  // });
   showModal() {
     $(".modal").addClass("is-active");
   }
@@ -79,10 +90,8 @@ class HomePage extends React.Component {
   }
   render() {
     return (
-      <StickyContainer>
 
         <div id="App">
-        
           {/*config*/}
           <div class="modal">
             <div class="modal-background"></div>
@@ -104,52 +113,84 @@ class HomePage extends React.Component {
           {/*config*/}
           <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
           <div id="page-wrap">
-            <Header />
-            {/* **************************************************************************** */}
-            <div className="backgrounddash">
-              <div className="columns">
-                <img src={ban} alt='ban' width='45%' />
+
+                  <header className="header" >
+                    <div class="columns is-multiline ">
+                      <div className="column  is-offset-3">
+                        <img src={logo} alt='logo' width='110px' className="has-text-centered" />
+                      </div>
+
+                      {/* <div className="column is-1">
+                <h5>{firebase.auth().currentUser.displayName}</h5>
+               </div>    
+                       */}
+                      {/* <button onClick={() => firebase.auth().signOut()}>Sign out!</button> */}
+                      <div class="column is-2 ">
+                        <p className="textcard2">{firebase.auth().currentUser.displayName}</p>
+                        <SignOutButton />
+                      </div>
+
+                      <div className="column is-1">
+                        <img alt="profilepic" src={firebase.auth().currentUser.photoURL} />
+                      </div>
+
+                    </div>
+                  </header>
+
+ 
+            {/* ****************************  Banner ********************************* */}
+            <Banner />
+            {/* *************************** botton ************************************* */}
+            <br />
+            <div className="columns is-centered">
+              <div className="column is-half">
+                <div className="box has-text-centered">
+                  <p ><h4>Upload CSV file to Visualization</h4></p>  <br />
+                  <div className="file is-centered">
+                    <label className="file-label">
+                      <input className="file-input" type="file" name="resume" onChange={this.handleChangeFile} />
+                      <span className="file-cta">
+                        <span className="file-icon">
+                          <i className="fas fa-upload"></i>
+                        </span>
+                        <span className="file-label" >
+                          Choose a file…
+                        </span>
+                      </span>
+                    </label>
+                  </div>
+                  <br />
+                  <div id="react-file-drop-demo">
+                    <FileDrop onDrop={this.handleDrop}>
+                      Drop some files here!
+                </FileDrop>
+                  </div>
+                  <br />
+                  <button className="button is-info is-medium" id="Input"
+                    onClick={this.handleClick}>
+                    Upload</button>
+                </div>
+              </div>
+            </div>
+            {/* **************************** Graph Descript ****************************** */}
+            <br />  <br /> <br />
+            <p className="textcard">Graph Description</p>
+             <br />  <br /> <br />
+            <div className="columns">
+              <div className="column is-offset-2">
+                < GraphDescript />
+              </div>
+              <div className="column">
+              Drop some files here!
               </div>
             </div>
 
-            <div className="bolck2">
-              <p className="textcard3">Upload CSV file</p>
-              <div className="file">
-                <label className="file-label">
-                  <input className="file-input" type="file" name="resume" onChange={this.handleChangeFile} />
-                  <span className="file-cta">
-                    <span className="file-icon">
-                      <i className="fas fa-upload"></i>
-                    </span>
-                    <span className="file-label" >
-                      Choose a file…
-                          </span>
-                  </span>
-                </label>
-              </div>
-              <br />
-              <div id="react-file-drop-demo">
-                <FileDrop onDrop={this.handleDrop}>
-                  Drop some files here!
-                      </FileDrop>
-              </div>
-              <br />
+            {/* **************************** Footer ****************************** */}
+            <br />  <br /> <br />
+            <div className="backgroundup">
+              <p className="textcard">Insira Team</p>
+              <br />  <br /> <br />
 
-
-
-              {/*<Link to={ROUTES.DATA}>*/}
-              <button className="button is-info" id="Input"
-                onClick={this.handleClick}>
-                Upload</button>
-
-              {/*</Link>*/}
-            </div>
-            {/* **************************************************************************** */}
-            <br />      <br />      <br />
-
-            <p className="textcard">Insira Team</p>
-            <br />      <br />      <br />
-            <div className="header">
               <div className="columns is-0">
                 <div className="column">
 
@@ -179,20 +220,21 @@ class HomePage extends React.Component {
                 </div>
               </div>
             </div>
+
             {/* **************************************************************************** */}
             <footer class="footer">
               <div class="content has-text-centered">
                 <p>
                   Powered by   <strong>  Insira </strong>The source code is licensed
-      <a href="http://www.kmutt.ac.th/">   ing Mongkut’s University of Technology Thonburi</a>.
-    </p>
+                <a href="http://www.kmutt.ac.th/">   ing Mongkut’s University of Technology Thonburi</a>.
+              </p>
               </div>
             </footer>
             {/* **************************************************************************** */}
 
           </div>
         </div>
-        </StickyContainer>
+
     );
   }
 }
