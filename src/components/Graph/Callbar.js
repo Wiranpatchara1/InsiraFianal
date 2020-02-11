@@ -33,8 +33,13 @@ export default class Callbar extends React.Component {
                     return (
                         <div className='columns is-centered'>
                             <div className='column is-9'>
-                                <div id={'bar_' + keys} className='box'>
-                                    <Bar key={i} data={data} name={keys} graphid={'bar_' + keys} />
+                                <div id={'bar_' + i} className='box'>
+                                    <Bar key={i} data={data} name={keys} graphid={'bar_' + i} />
+                                </div>
+                            </div>
+                            <div className='column is-2'>
+                                <div className='box'>
+                                    <h4>{this.state.bar.Descriptions[i][keys]}</h4>
                                 </div>
                             </div>
                         </div>

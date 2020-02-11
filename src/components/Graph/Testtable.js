@@ -14,7 +14,7 @@ class Testtable extends Component {
   componentDidMount() {
     const { data } = this.props;
     this.setState(state => ({
-      data:data
+      data: data
     }));
     // const now = this;
     // $.ajax({
@@ -63,6 +63,7 @@ class Testtable extends Component {
       processData: false, // important
       data: JSON.stringify({ 'data': now.state.data, 'target': now.state.target }),
       success: function (text) {
+        alert("Change data type success");
       }
     });
   }
@@ -71,34 +72,38 @@ class Testtable extends Component {
     // return <div id={"#" + this.props.id}></div>
     return (
       <div >
-        <table class="table is-bordered is-hoverable">
-          <thead>
-            <tr>
-              <th>col_name</th>
-              <th>col_type</th>
-              <th>target</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.data && this.state.data.map((data, key) => {
-              return (
-                <tr key={key}>
-                  <td>{data.col_name}</td>
-                  <td><select value={data.col_type} key={`item-${data.col_type}`} onChange={(e) => this.handletypeChange(data.col_name, e)}>
-                    {this.state.coltype.map((value, i) => (
-                      <option value={value} key={i}>{value}</option>
-                    ))}
-                  </select>
-                  </td>
-                  <td><input type="radio" name="target" value={data.col_name} style={{ textAlign: "center", verticalAlign: "center" }} onChange={(e) => this.handletargetChange(data.col_name, e)}></input></td>
+        <div className="columns is-centered is-vcentered is-mobile">
+            <div className="column is-narrow has-text-centered">
+              <table class="table is-bordered is-hoverable">
+                <thead>
+                  <tr>
+                    <th>col_name</th>
+                    <th>col_type</th>
+                    <th>target</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.state.data && this.state.data.map((data, key) => {
+                    return (
+                      <tr key={key}>
+                        <td>{data.col_name}</td>
+                        <td><select value={data.col_type} key={`item-${data.col_type}`} onChange={(e) => this.handletypeChange(data.col_name, e)}>
+                          {this.state.coltype.map((value, i) => (
+                            <option value={value} key={i}>{value}</option>
+                          ))}
+                        </select>
+                        </td>
+                        <td><input type="radio" name="target" value={data.col_name} style={{ textAlign: "center", verticalAlign: "center" }} onChange={(e) => this.handletargetChange(data.col_name, e)}></input></td>
 
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
-        <button class="button is-success" onClick={this.handleClick}>send</button>
-      </div>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
+              <button class="button is-success" onClick={this.handleClick}>send</button>
+            </div>
+          </div>
+        </div>
     );
 
   }

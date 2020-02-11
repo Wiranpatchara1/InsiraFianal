@@ -28,11 +28,15 @@ class Callheatmap extends Component {
 
   render() {
     return (
+      
         <div className='columns is-centered'>
           <div className='column is-9'>
+          {this.state.Heatmap && 
             <div id='Heatmap' className='box'>
+              <h4>&nbsp; Correlogram</h4><br /><br />
               {this.state.Heatmap && <Heatmap key={"heatmap01"} data={this.state.Heatmap.Values} name={"heatmap"} />}
             </div>
+          }
           </div>
         </div>
     );

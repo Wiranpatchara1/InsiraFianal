@@ -7,6 +7,7 @@ class Ranktable extends Component {
     constructor(props) {
         super(props);
         this.state = { call: false, limit: 300, loading: true };
+        this.showModal = this.showModal.bind(this);
     }
     componentDidMount() {
         // const { data } = this.props;
@@ -33,17 +34,35 @@ class Ranktable extends Component {
           });
 
     }
+    showModal(name) {
+        console.log(name)
+        $(name).addClass("is-active");
+      }
 
     render(index) {
         return (
             <div>
-            <button style={{
+            {/* test modal 
+            <div class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+              <header class="modal-card-head">
+                <p class="modal-card-title">TEST</p>
+                <button class="delete" aria-label="close" onClick={this.closeModal}></button>
+              </header>
+              <section class="modal-card-body">
+              </section>
+              <footer class="modal-card-foot">
+                  <button class="button is-success">Visualization</button>
+              </footer>
+            </div>
+          </div>
+             test modal */}
+            <a style={{
                 display: 'none',
                 position: 'fixed',
                 bottom: '10px',
-                right: '10px',}} className='button bottomBack'>
-                <a href={'#head'} >up</a>
-            </button>
+                right: '10px',}} className='button bottomBack' href={'#head'} >up</a>
             {this.state.loading&&<Loadprogress />}
             <div id="head" className="columns is-centered">
                 <div className="box">
@@ -72,7 +91,7 @@ class Ranktable extends Component {
                                 {this.state.data && this.state.data.Distribution.Colnames.map((d, i) => (
                                     <tr>
                                         <th>{i + 1}</th>
-                                        <td><a href={'#distribution_' + this.state.data.Distribution.Colnames[i]}>{'การกระจายตัวของ' + this.state.data.Distribution.Colnames[i]}</a></td>
+                                        <td><a href={'#distribution_' + i} onClick={() => this.showModal('#distribution__' + i)}>{'การกระจายตัวของ' + this.state.data.Distribution.Colnames[i]}</a></td>
                                         <td>{'การกระจายตัว 1 ตัวแปร'}</td>
                                         <td width={this.state.limit}>{this.state.data.Distribution.Descriptions[i][this.state.data.Distribution.Colnames[i]]}</td>
                                     </tr>
@@ -80,7 +99,7 @@ class Ranktable extends Component {
                                 {this.state.data && this.state.data.Scatter.Colnames.map((d, i) => (
                                     <tr>
                                         <th>{this.state.data.Distribution.Colnames.length + i +1}</th>
-                                        <td><a href={'#scatter_' + this.state.data.Scatter.Colnames[i].split(",")[0] + '_' + this.state.data.Scatter.Colnames[i].split(",")[1]}>{'ความสัมพันธ์ระหว่าง' + this.state.data.Scatter.Colnames[i].split(",")[0] + 'และ' + this.state.data.Scatter.Colnames[i].split(",")[1]}</a></td>
+                                        <td><a href={'#scatter_' + i} onClick={() => this.showModal('#scatter__' + i)}>{'ความสัมพันธ์ระหว่าง' + this.state.data.Scatter.Colnames[i].split(",")[0] + 'และ' + this.state.data.Scatter.Colnames[i].split(",")[1]}</a></td>
                                         <td>{'ความสัมพันธ์'}</td>
                                         <td width={this.state.limit}>{this.state.data.Scatter.Descriptions[i][this.state.data.Scatter.Colnames[i]]}</td>
                                     </tr>
@@ -88,7 +107,7 @@ class Ranktable extends Component {
                                 {this.state.data && this.state.data.Boxplot.Colnames.map((d, i) => (
                                     <tr>
                                         <th>{this.state.data.Scatter.Colnames.length + this.state.data.Distribution.Colnames.length + i +1}</th>
-                                        <td><a href={'#boxplot_' + this.state.data.Boxplot.Colnames[i]}>{'ค่าเฉลี่ยและการแปรผันของ' + this.state.data.Boxplot.Colnames[i]}</a></td>
+                                        <td><a href={'#boxplot_' + i} onClick={() => this.showModal('#boxplot__' + i)}>{'ค่าเฉลี่ยและการแปรผันของ' + this.state.data.Boxplot.Colnames[i]}</a></td>
                                         <td>{'การกระจายตัวของกลุ่ม'}</td>
                                         <td width={this.state.limit}>{this.state.data.Boxplot.Descriptions[i][this.state.data.Boxplot.Colnames[i]]}</td>
                                     </tr>
@@ -96,7 +115,7 @@ class Ranktable extends Component {
                                 {this.state.data && this.state.data.Bar_cat.Colnames.map((d, i) => (
                                     <tr>
                                         <th>{this.state.data.Boxplot.Colnames.length + this.state.data.Scatter.Colnames.length + this.state.data.Distribution.Colnames.length + i +1}</th>
-                                        <td><a href={'#bar_' + this.state.data.Bar_cat.Colnames[i]}>{'เปรียบเทียบปริมาณของ' + this.state.data.Bar_cat.Colnames[i]}</a></td>
+                                        <td><a href={'#bar_' + i}>{'เปรียบเทียบปริมาณของ' + this.state.data.Bar_cat.Colnames[i]}</a></td>
                                         <td>{'เปรียบเทียบปริมาณ'}</td>
                                         <td width={this.state.limit}>{this.state.data.Bar_cat.Descriptions[i][this.state.data.Bar_cat.Colnames[i]]}</td>
                                     </tr>
@@ -104,7 +123,7 @@ class Ranktable extends Component {
                                 {this.state.data && this.state.data.Ecdf.Colnames.map((d, i) => (
                                     <tr>
                                         <th>{this.state.data.Bar_cat.Colnames.length + this.state.data.Boxplot.Colnames.length + this.state.data.Scatter.Colnames.length + this.state.data.Distribution.Colnames.length + i +1}</th>
-                                        <td><a href={'#ecdf_' + this.state.data.Ecdf.Colnames[i]}>{'การแจกแจงสะสมเชิงประจักษ์ของ' + this.state.data.Ecdf.Colnames[i]}</a></td>
+                                        <td><a href={'#ecdf_' + i} onClick={() => this.showModal('#ecdf__' + i)}>{'การแจกแจงสะสมเชิงประจักษ์ของ' + this.state.data.Ecdf.Colnames[i]}</a></td>
                                         <td>{'Empirical distribution function'}</td>
                                         <td width={this.state.limit}>{this.state.data.Ecdf.Descriptions[i][this.state.data.Ecdf.Colnames[i]]}</td>
                                     </tr>

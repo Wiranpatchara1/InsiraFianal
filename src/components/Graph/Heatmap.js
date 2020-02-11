@@ -11,7 +11,7 @@ export default class Heatmap extends React.Component {
     }
     drawChart() {
         // append the svg object to the body of the page
-        const { data,name } = this.props;
+        const { data } = this.props;
         console.log("heatmap",data);
         var svg = d3.select("#Heatmap")
                     .append("svg")
@@ -79,8 +79,32 @@ export default class Heatmap extends React.Component {
                     return color(d.value);
                 }
             });
+        
+            var tooltip = d3.select("body")
+            .append("div")
+            .style("position", "absolute")
+            .style("z-index", "10")
+            .style("visibility", "hidden")
+            .style("background-color", "whitesmoke")
+            .style("color", "black")
+            .style("border-radius", "5px")
+            .style("padding", "10px")
+            .style("opacity", .6)
 
-
+        var showTooltip = function (d) {
+          tooltip
+            .html("Value: " + d.value.toFixed(2))
+            .style("visibility", "visible");
+        }
+        var moveTooltip = function (d) {
+          tooltip
+            .style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");
+        }
+        // A function that change this tooltip when the leaves a point: just need to set opacity to 0 again
+        var hideTooltip = function (d) {
+          tooltip
+            .style("visibility", "hidden");
+        }
         // Up right part: add circles
         cor
             .filter(function (d) {
@@ -98,18 +122,13 @@ export default class Heatmap extends React.Component {
                 }
             })
             .style("opacity", 0.8)
-            var title = "distribution of " + name;
-            svg.append("text")
-              .attr("x", (width / 2))
-              .attr("y", 0 - (margin.top / 2))
-              .attr("text-anchor", "middle")
-              .style("font-size", "16px")
-              .style("text-decoration", "underline")
-              .text(title);
+            .on("mouseover", showTooltip )
+            .on("mousemove", moveTooltip )
+            .on("mouseleave", hideTooltip );
 
     }
     render() {
-        return <div id={"#" + this.props.id}></div>
+        return (null);
       }
 
 

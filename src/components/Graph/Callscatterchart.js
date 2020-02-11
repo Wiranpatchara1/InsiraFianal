@@ -1,12 +1,13 @@
 import React from 'react';
 import $ from 'jquery';
 import Correlation from './Scatter'
-import '../../bulma.css';
+import '../../custom.scss';
 
 export default class Callscatterchart extends React.Component {
     constructor(props) {
         super(props);
         this.state = { call: false };
+        this.closeModal = this.closeModal.bind(this);
 
     }
     componentDidMount() {
@@ -22,6 +23,9 @@ export default class Callscatterchart extends React.Component {
             }
         });
     }
+    closeModal(name) {
+        $(name).removeClass("is-active");
+    }
 
 
     render() {
@@ -30,14 +34,20 @@ export default class Callscatterchart extends React.Component {
                 {this.state.scatter && this.state.scatter.Values.map((d, i) => {
                     var keys = Object.keys(d)[0];
                     var data = d[keys];
-                    var label = keys.split(",");
                     return (
-                        <div className='columns is-centered'>
-                            <div className='column is-9'>
-                                <div id={'scatter_' + label[0] + '_' + label[1]} className='box'>
-                                    <Correlation key={i} data={data} name={keys} graphid={'scatter_' + label[0] + '_' + label[1]} />
-                                </div>
+                        <div id={'scatter__' + i} className="modal">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <section class="modal-card-body">
+                                    <div id={'scatter_' + i} className='box'>
+                                        <Correlation key={i} data={data} name={keys} graphid={'scatter_' + i} />
+                                    </div>
+                                    <div className='box'>
+                                        <h4>{this.state.scatter.Descriptions[i][keys]}</h4>
+                                    </div>
+                                </section>
                             </div>
+                            <button class="modal-close is-large" aria-label="close" onClick={() => this.closeModal('#scatter__' + i)}></button>
                         </div>
                     )
                 })}
@@ -45,3 +55,17 @@ export default class Callscatterchart extends React.Component {
         );
     }
 }
+/*
+<div className='columns is-centered'>
+                            <div className='column is-9'>
+                                <div id={'scatter_' + i} className='box'>
+                                    <Correlation key={i} data={data} name={keys} graphid={'scatter_' + i} />
+                                </div>
+                            </div>
+                            <div className='column is-2'>
+                                <div className='box'>
+                                    <h4>{this.state.scatter.Descriptions[i][keys]}</h4>
+                                </div>
+                            </div>
+                        </div>
+*/
