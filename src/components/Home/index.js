@@ -133,7 +133,7 @@ class HomePage extends React.Component {
                       </div>
 
                       <div className="column is-1">
-                        <img alt="profilepic" src={firebase.auth().currentUser.photoURL} />
+                        <img alt="profilepic" style={{ borderRadius: '50%' }} width={50} height={50} src={firebase.auth().currentUser.photoURL} />
                       </div>
 
                     </div>
@@ -229,7 +229,7 @@ class HomePage extends React.Component {
               <div class="content has-text-centered">
                 <p>
                   Powered by   <strong>  Insira </strong>The source code is licensed
-                <a href="http://www.kmutt.ac.th/">   ing Mongkut’s University of Technology Thonburi</a>.
+                <a href="http://www.kmutt.ac.th/">   King Mongkut’s University of Technology Thonburi</a>.
               </p>
               </div>
             </footer>
