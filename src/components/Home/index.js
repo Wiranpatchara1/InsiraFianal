@@ -5,16 +5,18 @@ import { withAuthorization } from '../Session';
 import logo from '../../image/logo.jpg';
 import niti from '../../image/niti.png';
 import tang from '../../image/Tang.png';
+import pic1 from '../../image/pic1.jpg';
+import pic11 from '../../image/pic11.jpg';
+import pic2 from '../../image/pic2.jpg';
+import pic3 from '../../image/pic3.jpg';
+import pic4 from '../../image/pic4.jpg';
+import pic5 from '../../image/pic5.jpg';
 import nut from '../../image/Nut.png';
 import SideBar from '../Slidebar ';
-import { StickyContainer, Sticky } from 'react-sticky';
 import firebase from "firebase";
-import FileDrop from 'react-file-drop';
 import { Link } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes';
 import $ from 'jquery';
-import GraphDescript from '../GraphDescript';
-
 import Testtable from '../Graph/Testtable';
 import Banner from '../Banner ';
 class HomePage extends React.Component {
@@ -139,13 +141,23 @@ class HomePage extends React.Component {
 
  
             {/* ****************************  Banner ********************************* */}
-            <Banner />
+            <img src={pic11} alt='pic11'  />
+            {/* <img src={pic1} alt='pic1'  /> */}
+            {/* <Banner /> */}
+
             {/* *************************** botton ************************************* */}
             <br />
             <div className="columns is-centered">
+
+            <div className="column is-half">
+              <img src={pic2} alt='pic2'  />
+            </div>
+  
               <div className="column is-half">
-                <div className="box has-text-centered">
-                  <p ><h4>Upload CSV file to Visualization</h4></p>  <br />
+                <div className="has-text-centered">
+                <br />  <br /> <br />   <br />  <br /> <br />   <br />  <br /> <br />
+                  <p className ="textcard"><h4>Upload CSV file to Visualization</h4></p>  
+                  <p c><h4>pleas upload CSV file below for preprocess data</h4></p>  <br />
                   <div className="file is-centered">
                     <label className="file-label">
                       <input className="file-input" type="file" name="resume" onChange={this.handleChangeFile} />
@@ -161,33 +173,24 @@ class HomePage extends React.Component {
                   </div>
                   <br />
                   <div id="react-file-drop-demo">
-                    <FileDrop onDrop={this.handleDrop}>
-                      Drop some files here!
-                </FileDrop>
+                   
                   </div>
-                  <br />
+  
                   <button className="button is-info is-medium" id="Input"
                     onClick={this.handleClick}>
                     Upload</button>
                 </div>
               </div>
+             
             </div>
-            {/* **************************** Graph Descript ****************************** */}
-            <br />  <br /> <br />
-            <p className="textcard">Graph Description</p>
-             <br />  <br /> <br />
-            <div className="columns">
-              <div className="column is-offset-2">
-                < GraphDescript />
-              </div>
-              <div className="column">
-              Drop some files here!
-              </div>
-            </div>
+            {/* **************************** expect ****************************** */}
+            <img src={pic5} alt='pic5'  />
+            <img src={pic3} alt='pic3'  />
 
             {/* **************************** Footer ****************************** */}
-            <br />  <br /> <br />
-            <div className="backgroundup">
+            <img src={pic4} alt='pic4'  />
+            {/* <br />  <br /> <br />
+
               <p className="textcard">Insira Team</p>
               <br />  <br /> <br />
 
@@ -219,7 +222,7 @@ class HomePage extends React.Component {
                   <p className="textcard3">King Mongkut’s University of Technology Thonburi</p>
                 </div>
               </div>
-            </div>
+  */}
 
             {/* **************************************************************************** */}
             <footer class="footer">
