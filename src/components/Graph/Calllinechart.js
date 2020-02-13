@@ -5,10 +5,11 @@ import Linechart from './Linechart'
 export default class Calllinechart extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {call: false};
+        this.state = { call: false };
+        this.closeModal = this.closeModal.bind(this);
 
     }
-    componentDidMount(){
+    componentDidMount() {
         const now = this;
         $.ajax({
             url: 'http://127.0.0.1:5000/data?arg1=time',
@@ -21,10 +22,13 @@ export default class Calllinechart extends React.Component {
             }
         });
     }
+    closeModal(name) {
+        $(name).removeClass("is-active");
+      }
 
 
-    render(){
-        return(
+    render() {
+        return (
             <div id='time'>
                 {this.state.time && this.state.time.Values.map((d, i) => {
                     var keys = Object.keys(d)[0];
@@ -36,7 +40,30 @@ export default class Calllinechart extends React.Component {
                     });
                     console.log(data)
                     return (
-                        <div className='columns is-centered'>
+                        <div id={'time__' + i} class="modal">
+                            <div class="modal-background"></div>
+                            <div class="modal-content">
+                                <section class="modal-card-body">
+                                    <div id={'time_' + i} className='box'>
+                                        <Linechart key={i} data={data} name={keys} graphid={'time_' + i} />
+                                    </div>
+                                    <div className='box'>
+                                        <h4>{this.state.time.Descriptions[i][keys]}</h4>
+                                    </div>
+                                </section>
+                            </div>
+                            <button class="modal-close is-large" aria-label="close" onClick={() => this.closeModal('#time__' + i)}></button>
+                        </div>
+                    )
+                })}
+            </div>
+
+
+        );
+    }
+}
+/*
+<div className='columns is-centered'>
                             <div className='column is-9'>
                                 <div id={'time_' + i} className='box'>
                                     <Linechart key={i} data={data} name={keys} graphid={'time_' + i} />
@@ -48,11 +75,4 @@ export default class Calllinechart extends React.Component {
                                 </div>
                             </div>
                         </div>
-                    )
-                })}
-            </div>
-            
-
-        );
-    }
-}
+*/

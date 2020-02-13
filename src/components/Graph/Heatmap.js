@@ -26,7 +26,7 @@ export default class Heatmap extends React.Component {
         // Create a color scale
         var color = d3.scaleLinear()
             .domain([-1, 0, 1])
-            // .range(["#fff",colors.color1]);
+            // .range(["red","#fff","blue"]);
             .range(["#B22222", "#fff", "#000080"]);
 
         // Create a size scale for bubbles on top right. Watch out: must be a rootscale!
@@ -53,7 +53,28 @@ export default class Heatmap extends React.Component {
             .attr("transform", function (d) {
                 return "translate(" + x(d.x) + "," + y(d.y) + ")";
             });
-
+        // cor
+        //     .filter(function (d) {
+        //         var ypos = domain.indexOf(d.y);
+        //         var xpos = domain.indexOf(d.x);
+        //         return xpos == ypos;
+        //     })
+        //     .append("rect")
+        //     .attr("x",function (d) {
+        //         if(d.x === d.y){
+        //             console.log(d.x)
+        //             return d.x;
+        //         }
+        //     })
+        //     .attr("y",function (d) {
+        //         if(d.x === d.y){
+        //             return d.y;
+        //         }
+        //     })
+        //     .attr("width", 60)
+        //     .attr("height", 40)
+        //     .style("fill", "red")
+            // .style("mix-blend-mode", "hue")
         // Low left part + Diagonal: Add the text with specific color
         cor
             .filter(function (d) {
@@ -70,8 +91,21 @@ export default class Heatmap extends React.Component {
                     return d.value.toFixed(2);
                 }
             })
-            .style("font-size", 11)
+            .style("font-size", function(d) {
+                if (d.x === d.y){
+                    return 15;
+                }else {
+                    return 10;
+                }
+            })
             .style("text-align", "center")
+            .style("font-weight", function(d){
+                if (d.x === d.y){
+                    return "bold";
+                }else{
+                    return "normal";
+                }
+            })
             .style("fill", function (d) {
                 if (d.x === d.y) {
                     return "#000";

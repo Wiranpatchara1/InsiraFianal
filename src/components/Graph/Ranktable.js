@@ -115,7 +115,7 @@ class Ranktable extends Component {
                                 {this.state.data && this.state.data.Bar_cat.Colnames.map((d, i) => (
                                     <tr>
                                         <th>{this.state.data.Boxplot.Colnames.length + this.state.data.Scatter.Colnames.length + this.state.data.Distribution.Colnames.length + i +1}</th>
-                                        <td><a href={'#bar_' + i}>{'เปรียบเทียบปริมาณของ' + this.state.data.Bar_cat.Colnames[i]}</a></td>
+                                        <td><a href={'#bar_' + i} onClick={() => this.showModal('#bar__' + i)}>{'เปรียบเทียบปริมาณของ' + this.state.data.Bar_cat.Colnames[i]}</a></td>
                                         <td>{'เปรียบเทียบปริมาณ'}</td>
                                         <td width={this.state.limit}>{this.state.data.Bar_cat.Descriptions[i][this.state.data.Bar_cat.Colnames[i]]}</td>
                                     </tr>
@@ -126,6 +126,14 @@ class Ranktable extends Component {
                                         <td><a href={'#ecdf_' + i} onClick={() => this.showModal('#ecdf__' + i)}>{'การแจกแจงสะสมเชิงประจักษ์ของ' + this.state.data.Ecdf.Colnames[i]}</a></td>
                                         <td>{'Empirical distribution function'}</td>
                                         <td width={this.state.limit}>{this.state.data.Ecdf.Descriptions[i][this.state.data.Ecdf.Colnames[i]]}</td>
+                                    </tr>
+                                ))}
+                                {this.state.data && this.state.data.Time.Colnames.map((d, i) => (
+                                    <tr>
+                                        <th>{this.state.data.Ecdf.Colnames.length + this.state.data.Bar_cat.Colnames.length + this.state.data.Boxplot.Colnames.length + this.state.data.Scatter.Colnames.length + this.state.data.Distribution.Colnames.length + i +1}</th>
+                                        <td><a href={'#time_' + i} onClick={() => this.showModal('#time__' + i)}>{'การแสดงการเปลี่ยนแปลง' + this.state.data.Time.Colnames[i].split(",")[0] + 'และ' + this.state.data.Time.Colnames[i].split(",")[1]}</a></td>
+                                        <td>{'การแสดงการเปลี่ยนแปลงตามเวลา'}</td>
+                                        <td width={this.state.limit}>{this.state.data.Time.Descriptions[i][this.state.data.Time.Colnames[i]]}</td>
                                     </tr>
                                 ))}
                             </tbody>
