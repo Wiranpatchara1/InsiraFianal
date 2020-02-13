@@ -1,24 +1,19 @@
 import React from 'react';
 import '../../bulma.css';
-import SignOutButton from '../SignOut';
 import { withAuthorization } from '../Session';
-import logo from '../../image/logo.jpg';
-import niti from '../../image/niti.png';
-import tang from '../../image/Tang.png';
-import pic1 from '../../image/pic1.jpg';
 import pic11 from '../../image/pic11.jpg';
+import Header from '../Header';
 import pic2 from '../../image/pic2.jpg';
 import pic3 from '../../image/pic3.jpg';
 import pic4 from '../../image/pic4.jpg';
 import pic5 from '../../image/pic5.jpg';
-import nut from '../../image/Nut.png';
+import pic6 from '../../image/pic6.jpg';
+import { StickyContainer} from 'react-sticky';
 import SideBar from '../Slidebar ';
-import firebase from "firebase";
 import { Link } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes';
 import $ from 'jquery';
 import Testtable from '../Graph/Testtable';
-import Banner from '../Banner ';
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
@@ -92,8 +87,8 @@ class HomePage extends React.Component {
   }
   render() {
     return (
-
-        <div id="App">
+      <StickyContainer>
+      <div id="App">
           {/*config*/}
           <div class="modal">
             <div class="modal-background"></div>
@@ -113,32 +108,11 @@ class HomePage extends React.Component {
             </div>
           </div>
           {/*config*/}
-          <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
-          <div id="page-wrap">
 
-                  <header className="header" >
-                    <div class="columns is-multiline ">
-                      <div className="column  is-offset-3">
-                        <img src={logo} alt='logo' width='110px' className="has-text-centered" />
-                      </div>
 
-                      {/* <div className="column is-1">
-                <h5>{firebase.auth().currentUser.displayName}</h5>
-               </div>    
-                       */}
-                      {/* <button onClick={() => firebase.auth().signOut()}>Sign out!</button> */}
-                      <div class="column is-2 ">
-                        <p className="textcard2">{firebase.auth().currentUser.displayName}</p>
-                        <SignOutButton />
-                      </div>
-
-                      <div className="column is-1">
-                        <img alt="profilepic" style={{ borderRadius: '50%' }} width={50} height={50} src={firebase.auth().currentUser.photoURL} />
-                      </div>
-
-                    </div>
-                  </header>
-
+                  <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
+            <div id="page-wrap">
+                <Header />
  
             {/* ****************************  Banner ********************************* */}
             <img src={pic11} alt='pic11'  />
@@ -222,14 +196,14 @@ class HomePage extends React.Component {
                   <p className="textcard3">King Mongkut’s University of Technology Thonburi</p>
                 </div>
               </div>
-  */}
+  */}     <img src={pic6} alt='pic6'  />
 
             {/* **************************************************************************** */}
             <footer class="footer">
               <div class="content has-text-centered">
                 <p>
                   Powered by   <strong>  Insira </strong>The source code is licensed
-                <a href="http://www.kmutt.ac.th/">   King Mongkut’s University of Technology Thonburi</a>.
+                <a href="http://www.kmutt.ac.th/">   ing Mongkut’s University of Technology Thonburi</a>.
               </p>
               </div>
             </footer>
@@ -237,7 +211,7 @@ class HomePage extends React.Component {
 
           </div>
         </div>
-
+        </StickyContainer>
     );
   }
 }

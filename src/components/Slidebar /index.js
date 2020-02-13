@@ -14,9 +14,6 @@ export default props => {
         Analytics
       </a>
 
-      <a className="menu-item" href="/Report">
-        Report
-      </a>
 
       <a className="menu-item" href="/Setting">
         Setting

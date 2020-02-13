@@ -18,7 +18,7 @@ export default props => {
                     calculatedHeight
                 }) => (
                         <header className="header" style={style}>
-                            <div class="columns is-multiline ">
+                            <div className="columns is-multiline ">
                                 <div className="column  is-offset-3">
                                     <img src={logo} alt='logo' width='110px' className="has-text-centered" />
                                 </div>
