@@ -39,11 +39,11 @@ class HomePage extends React.Component {
   // $("#modal-close").click(function () {
   //   $(".modal").removeClass("is-active");
   // });
-  showModal() {
-    $(".modal").addClass("is-active");
+  showModal(name) {
+    $(name).addClass("is-active");
   }
-  closeModal() {
-    $(".modal").removeClass("is-active");
+  closeModal(name) {
+    $(name).removeClass("is-active");
   }
   handleClick() {
     this.setState(state => ({
@@ -68,7 +68,7 @@ class HomePage extends React.Component {
             }))
           }
         ).then(
-          now.showModal()
+          now.showModal('#config-type')
         )
       },
       error: function () {
@@ -95,12 +95,12 @@ class HomePage extends React.Component {
 
         <div id="App">
           {/*config*/}
-          <div class="modal">
+          <div class="modal" id="config-type">
             <div class="modal-background"></div>
             <div class="modal-card">
               <header class="modal-card-head">
                 <p class="modal-card-title">Config column type</p>
-                <button class="delete" aria-label="close" onClick={this.closeModal}></button>
+                <button class="delete" aria-label="close" onClick={() => {this.closeModal("#config-type")}}></button>
               </header>
               <section class="modal-card-body">
                 {this.state.data && <Testtable data={this.state.data} />}
@@ -113,6 +113,35 @@ class HomePage extends React.Component {
             </div>
           </div>
           {/*config*/}
+          {/*Disclaimer*/}
+          <div class="modal" id="disclaimer">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+              <header class="modal-card-head">
+                <p class="modal-card-title">Disclaimer</p>
+                <button class="delete" aria-label="close" onClick={() => {this.closeModal("#disclaimer")}}></button>
+              </header>
+              <section class="modal-card-body">
+                <p>
+                ข้อตกลงในการใช้ซอฟต์แวร์ 
+     ซอฟต์แวร์นี้เป็นผลงานที่พัฒนาขึ้นโดย นายนิติ บือสาแม,นายณัฐพัชร์ ยุวะสุตและ นางสาววิรัลพัชร หอมแก่น จาก มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี ภายใต้การดูแลของ ผศ.ดร.สันติธรรม พรหมอ่อนภายใต้โครงการ “ซอฟท์วิเคราะห์ข้อมูลอัตโนมัติ”
+ ซึ่งสนับสนุนโดย ศูนย์เทคโนโลยีอิเล็กทรอนิกส์และคอมพิวเตอร์แห่งชาติ โดยมีวัตถุประสงค์เพื่อส่งเสริมให้นักเรียนและนักศึกษาได้เรียนรู้และฝึก ทักษะในการพัฒนาซอฟต์แวร์ ลิขสิทธิ์ของซอฟต์แวร์นี้จึงเป็นของผู้พัฒนา 
+ซึ่งผู้พัฒนาได้อนุญาตให้ศูนย์เทคโนโลยีอิเล็กทรอนิกส์และคอมพิวเตอร์แห่ง ชาติ เผยแพร่ซอฟต์แวร์นี้ตาม “ต้นฉบับ” โดยไม่มีการแก้ไขดัดแปลงใดๆ ทั้งสิ้น ให้แก่บุคคลทั่วไปได้ใช้เพื่อประโยชน์ส่วนบุคคลหรือประโยชน์ทางการศึกษาที่
+ ไม่มีวัตถุประสงค์ในเชิงพาณิชย์ โดยไม่คิดค่าตอบแทนการใช้ซอฟต์แวร์ ดังนั้น ศูนย์เทคโนโลยีอิเล็กทรอนิกส์และคอมพิวเตอร์แห่งชาติ จึงไม่มีหน้าที่ในการดูแล บำรุงรักษา จัดการอบรมการใช้งาน หรือพัฒนาประสิทธิภาพซอฟต์แวร์ 
+รวมทั้งไม่รับรองความถูกต้องหรือประสิทธิภาพการทำงานของซอฟต์แวร์ ตลอดจนไม่รับประกันความเสียหายต่างๆ อันเกิดจากการใช้ซอฟต์แวร์นี้ทั้งสิ้น<br/>
+License Agreement
+     This software is a work developed by Niti Buesamae, Nattapat Yuvasuta and Wiranphatchara hoemkaen from King mongkut's University Technology Thonburi 
+under the provision of Santitham Promon under “Automated visualization with description” , which has been supported by the National Electronics and Computer Technology Center (NECTEC)
+, in order to encourage pupils and students to learn and practice their skills in developing software.  Therefore, the intellectual property of this software shall belong
+ to the developer and the developer gives NECTEC a permission to distribute this software as an “as is ” and non-modified software for a temporary and
+ non-exclusive use without remuneration to anyone for his or her own purpose or academic purpose, which are not commercial purposes.  In this connection,
+ NECTEC and SIPA shall not be responsible to the user for taking care, maintaining, training or developing the efficiency of this software. Moreover, 
+NECTEC shall not be liable for any error, software efficiency and damages in connection with or arising out of the use of the software.”
+                </p>
+              </section>
+            </div>
+          </div>
+          {/*Disclaimer*/}
           <SideBar pageWrapId={"page-wrap"} outerContainerId={"App"} />
           <div id="page-wrap">
 
@@ -231,6 +260,7 @@ class HomePage extends React.Component {
                   Powered by   <strong>  Insira </strong>The source code is licensed
                 <a href="http://www.kmutt.ac.th/">   King Mongkut’s University of Technology Thonburi</a>.
               </p>
+              <a href='javascript:void(0)' onClick={() => this.showModal("#disclaimer")}>ข้อตกลงการใช้ซอฟต์แวร์</a>
               </div>
             </footer>
             {/* **************************************************************************** */}
