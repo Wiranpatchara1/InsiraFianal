@@ -17,6 +17,7 @@ import { Link } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes';
 import $ from 'jquery';
 import Testtable from '../Graph/Testtable';
+
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
@@ -258,9 +259,11 @@ class HomePage extends React.Component {
                 <div class="content has-text-centered">
                   <p>
                     Powered by   <strong>  Insira </strong>The source code is licensed
-                    <a href="http://www.kmutt.ac.th/">   ing Mongkut’s University of Technology Thonburi</a>.
+                    <a href="http://www.kmutt.ac.th/">   King Mongkut’s University of Technology Thonburi</a>.
                   </p>
-                  <p href='#' onClick={() => this.showModal("#disclaimer")}>ข้อตกลงการใช้ซอฟต์แวร์</p>
+                  {/* eslint-disable-next-line */}
+                  <a href="javascript:void(0)" onClick={() => this.showModal("#disclaimer")}>ข้อตกลงการใช้ซอฟต์แวร์</a>
+                
                 </div>
               </footer>
               {/* **************************************************************************** */}

@@ -1,6 +1,7 @@
 import React from 'react';
 import * as d3 from 'd3';
 import { colors, margin, width, height } from '../../variables';
+
 export default class Correlation extends React.Component {
   constructor(props) {
     super(props);
@@ -97,6 +98,7 @@ export default class Correlation extends React.Component {
       .style("font-size", "16px")
       .style("text-decoration", "underline")
       .text(title);
+
   }
   render() {
     return (null);

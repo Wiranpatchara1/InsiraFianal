@@ -36,13 +36,19 @@ class Callhistogram extends Component {
         {this.state.Histogram && this.state.Histogram.Values.map((d, i) => {
           var keys = Object.keys(d)[0];
           var data = d[keys];
+          var binwidth = Math.round(Math.sqrt(data.length))
+
           return (
             <div id={'distribution__' + i} class="modal">
               <div class="modal-background"></div>
               <div class="modal-content">
                 <section class="modal-card-body">
                   <div id={'distribution_' + i} className='box'>
-                    <Histogram key={i} data={data} name={keys} graphid={'distribution_' + i} />
+                    <Histogram key={i} data={data} name={keys} graphid={'distribution_' + i} nbin={binwidth}/>
+                    {/*<p>
+                    <label># bins</label>
+                      <input type="number" min="1" max="100" step="30" value={binwidth} id={"nbin" + 'distribution_' + i}></input>
+                    </p>*/}
                   </div>
                   <div className='box'>
                     <h4>{this.state.Histogram.Descriptions[i][keys]}</h4>

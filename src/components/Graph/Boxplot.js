@@ -1,6 +1,8 @@
 import React from 'react';
 import * as d3 from 'd3';
 import { colors, margin, width, height } from '../../variables';
+import * as d3annotation from 'd3-svg-annotation';
+
 export default class Boxplot extends React.Component {
   constructor(props) {
     super(props);
@@ -86,11 +88,47 @@ export default class Boxplot extends React.Component {
       .data(data)
       .enter()
       .append("circle")
-      .attr("cx", function(d){return(center - jitterWidth/2 + Math.random()*jitterWidth )})
+      .attr("cx", function (d) { return (center - jitterWidth / 2 + Math.random() * jitterWidth) })
       .attr("cy", function (d) { return (y(d)) })
       .attr("r", 1.5)
       .style("fill", "white")
       .attr("stroke", "black")
+    const annotations = [
+      {
+        note: {
+          title: "median",
+          wrap: 150
+        },
+        x: center,
+        y: y(median),
+        dy: -80,
+        dx: 262
+      }, {
+        //below in makeAnnotations has type set to d3.annotationLabel
+        //you can add this type value below to override that default
+        type: d3annotation.annotationCalloutCircle,
+        note: {
+          title: "outliner",
+          wrap: 190
+        },
+        //settings for the subject, in this case the circle radius
+        subject: {
+          radius: 50
+        },
+        x: center,
+        y: y(max)-50,
+        dy: 50,
+        dx: 180
+      }].map(function (d) { d.color = "#E8336D"; return d })
+
+    const makeAnnotations = d3annotation.annotation()
+      .type(d3annotation.annotationLabel)
+      .annotations(annotations)
+
+    svg
+      .append("g")
+      .attr("class", "annotation-group")
+      .call(makeAnnotations)
 
 
 

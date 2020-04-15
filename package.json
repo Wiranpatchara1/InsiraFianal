@@ -6,6 +6,7 @@
     "animate.css": "^3.7.2",
     "bulma": "^0.8.0",
     "d3": "^5.14.1",
+    "d3-svg-annotation": "^2.5.1",
     "firebase": "^7.2.2",
     "jquery": "^3.4.1",
     "node-sass": "^4.13.1",
